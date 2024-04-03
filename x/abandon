@@ -30,9 +30,9 @@ if [[ ! -d ${METAQ_WORKING} ]]; then
 fi
 
 MACHINE_MATCH='^'"$METAQ_MACHINE"'.*$'
-if [[ ! "$HOSTNAME" =~ $MACHINE_MATCH ]]; then
-
-    echo "You are on machine                                $HOSTNAME"
+#if [[ ! "`hostname -f`" =~ $MACHINE_MATCH ]]; then
+if [[ ! "`hostname -f`" == *$METAQ_MACHINE* ]]; then
+    echo "You are on machine                                `hostname -f`"
     echo "You intend to abandon tasks as though you are on  $METAQ_MACHINE"
     echo ""
     echo "If these don't match, you might cause yourself a headache."
